@@ -14,15 +14,32 @@ This mechanism faciliates our aim to separate logical changes in different commi
 How can you use the staging area to make sure you have one commit per logical
 change?
 
-
+In case I have changed two files and each logical change is restricted to a single files, I can
+first commit one file and than the second file. This would not be possible without the staging
+area.
 
 What are some situations when branches would be helpful in keeping your history
 organized? How would branches help?
 
-How do the diagrams help you visualize the branch structure?
+A very common use-case of branches is a development branch for a specific feature. The master
+branch can still be in production. We develop happily on the development branch without effecting the
+production version. At some point we merge both branch into a new production version.
+
+How do the diagrams help visualize the branch structure?
+
+One can easily understand which commit belongs to which branch and also understand which
+commits are reachable and which not.
+
 
 What is the result of merging two branches together? Why do we represent it in
 the diagram the way we do?
 
+The result of a merge of two branches is a new commit including all the changes made
+in the last commit of each branch with respect to last commit where both branches were still together.
+
 What are the pros and cons of Git's automatic merging vs. always doing merges
 manually?
+
+Git includes lines present in one file but not in the other and does not include lines which were
+deleted in both files. This is the only automatic procedure. Any other merge conflict (i.e. differences betwenn files)
+has to be resolved manually. 
